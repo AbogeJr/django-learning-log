@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
 import learning_logs
 from .models import Topic, Entry
@@ -15,6 +16,7 @@ def index(request):
 def topics(request):
     "Show Topics"
     topics = Topic.objects.filter(owner=request.user).order_by('time_added')
+    topics = Topic.objects.annotate(no_entries=Count('entry'))
     context = {'topics':topics}
     return render(request, 'learning_logs/topics.html', context)
 
