@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     #My Apps
     'learning_logs',
     'users',
+    #Third Party Apps
+    'bootstrap4',
     #Default Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,3 +127,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#MY SETTINGS
+LOGIN_URL = 'users:login'
